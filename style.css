@@ -7,7 +7,8 @@ label { font-weight: bold; color: #726D71; }
 .month-year label:nth-of-type(2) { padding-right: 20px; }
 .week { width: 126px; }
 .weeks { display: flex; }
-.day { color: #726D71; width: 75px; }
+.day { width: 75px; }
+.now { color: #726D71; }
 .before, .after { color: #c8d6e5; }
 
 .t-a-c { text-align: center; }
