@@ -2,6 +2,7 @@
 header { border-bottom: 1px solid #95AFC0; }
 label { font-weight: bold; color: #726D71; }
 .main { display: flex; }
+.move { display: flex; }
 .move-day { position: relative; left: 15%; }
 .move-day i { color: #74B9FF;  }
 .month-year label:nth-of-type(2) { padding-right: 20px; }
@@ -10,6 +11,7 @@ label { font-weight: bold; color: #726D71; }
 .day { width: 75px; }
 .now { color: #726D71; }
 .before, .after { color: #c8d6e5; }
+.before-year, .after-year  { width: 110px; }
 
 .t-a-c { text-align: center; }
 
