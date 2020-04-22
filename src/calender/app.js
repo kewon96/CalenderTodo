@@ -1,82 +1,32 @@
-import * as dayCalc from './dayCalc.js';
+import makeDay from './makeDay.js'
 
 (function () {
 
+    // 시작으로 현재날짜를 기준으로 그려진다.
+    let date = new Date();
 
-    // 오늘(Default)
-    const today = new Date();
-    let year = today.getFullYear();
-    let month = today.getMonth() + 1;
-    let day = today.getDate();
+    const beforeYear = document.getElementById('before-year');  
+    const beforeMonth = document.getElementById('before-month');
+    const afterMonth = document.getElementById('after-month');
+    const afterYear = document.getElementById('after-year');
 
-    // 주 생성
-    for (let i = 0; i < 6; i++) {
-        // create
-        const weeks = document.createElement('div');
+    beforeYear.addEventListener('click', function() {
 
-        // class값 넣기
-        weeks.setAttribute('class', 'weeks');
+    })
 
-        document.getElementsByClassName('month')[0].append(weeks);
-    }
+    beforeMonth.addEventListener('click', function() {
 
-    let firstDay = dayCalc.dayOfWeekDate(year, month, 1); // 이번달 첫날의 요일
-    if(firstDay !== 0) {
-        let lastDay = dayCalc.lastDate(year, month - 2) - firstDay + 2; // 달력에 보여질 저번 달의 날짜 중 제일 낮은 날짜
-        for (let i = 0; i < firstDay - 1; i++) {
-            // create
-            const beforeElement = document.createElement('p');
-            beforeElement.appendChild(document.createTextNode(lastDay++));
+    })
 
-            // class값 넣기
-            beforeElement.setAttribute('class', 'before day');
+    afterMonth.addEventListener('click', function() {
 
-            // 첫번째 weeks에 넣기(document.getElementsByClassName('weeks')[0])
-            document.getElementsByClassName('weeks')[0].append(beforeElement);
-        }
-    }
+    })
+
+    afterYear.addEventListener('click', function() {
+
+    })
+
+    makeDay.makeDay(date);
     
-    // 이번달
-    let order = 0; // 주 순서
-    for (let i = 1; i < dayCalc.lastDate(year, month); i++) {
-        // create
-        const nowElement = document.createElement('p');
-        nowElement.appendChild(document.createTextNode(i));
-        
-        // class값 넣기
-        nowElement.setAttribute('class', 'now day')
-
-        // 순차적으로 넣기(document.getElementsByClassName('weeks')[order])
-        let weeks = document.getElementsByClassName('weeks')[order];
-        weeks.append(nowElement);
-
-        if(weeks.childElementCount >= 7) {
-            order++;
-        } 
-    }
-
-    // 다음달
-    /**
-     * 현재 달의 마지막날의 요일이 토요일이라면 6번째줄에만 보여지게
-     * 그게 아니라면 5번째줄부터
-     */
-    let lastDayWeek = dayCalc.dayOfWeekDate(dayCalc.lastDate(year, month));
-    console.log(lastDayWeek);
-    
-    for (let i = 1; i <= 13 - lastDayWeek; i++) {
-        // create
-        const afterElement = document.createElement('p');
-        afterElement.appendChild(document.createTextNode(i));
-        
-        // class값 넣기
-        afterElement.setAttribute('class', 'after day');
-
-        let weeks = document.getElementsByClassName('weeks')[order];
-        weeks.append(afterElement);
-
-        if(weeks.childElementCount >= 7) {
-            order++;
-        } 
-    }
 
 }());

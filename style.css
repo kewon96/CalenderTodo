@@ -11,7 +11,7 @@ label { font-weight: bold; color: #726D71; }
 .day { width: 75px; }
 .now { color: #726D71; }
 .before, .after { color: #c8d6e5; }
-.before-year, .after-year  { width: 110px; }
+#before-year, #after-year  { width: 110px; }
 
 .t-a-c { text-align: center; }
 
