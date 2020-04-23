@@ -2,9 +2,17 @@ import * as dayCalc from './dayCalc.js';
 
 export const makeDay = (date) => {
     // 오늘(Default)
+    
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
-    let day = date.getDate();
+
+    document.getElementById('strMonth').innerHTML = String(date).substr(4, 3);
+    document.getElementById('yearCount').innerHTML = year;
+
+    // 초기화
+    if(document.querySelector('.week-set').innerHTML !== '') {
+        document.querySelector('.week-set').innerHTML = '';
+    }
 
     // 주 생성
     for (let i = 0; i < 6; i++) {
@@ -14,7 +22,7 @@ export const makeDay = (date) => {
         // class값 넣기
         weeks.setAttribute('class', 'weeks');
 
-        document.getElementsByClassName('month')[0].append(weeks);
+        document.getElementsByClassName('week-set')[0].append(weeks);
     }
 
     let firstDay = dayCalc.dayOfWeekDate(year, month, 1); // 이번달 첫날의 요일
