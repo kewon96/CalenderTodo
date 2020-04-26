@@ -14,34 +14,37 @@ import makeDay from './makeDay.js'
     let month = date.getMonth();
 
     beforeYear.addEventListener('click', function() {
-        date = date.setFullYear(year - 1);
-        date = new Date(date);
-        
+        year--;
+        date = date.setFullYear(year);
+        date = new Date(date);       
+
         makeDay.makeDay(new Date(date));
     })
 
     beforeMonth.addEventListener('click', function() {
-        date = date.setMonth(month - 1);
+        month--;
+        date = date.setMonth(month);
         date = new Date(date);
 
         makeDay.makeDay(new Date(date));
     })
 
     afterMonth.addEventListener('click', function() {
-        date = date.setMonth(month + 1);
+        month++;
+        date = date.setMonth(month);
         date = new Date(date);
 
         makeDay.makeDay(new Date(date));
     })
 
     afterYear.addEventListener('click', function() {
-        date = date.setFullYear(year + 1);
+        year++;
+        date = date.setFullYear(year);
         date = new Date(date);
         
         makeDay.makeDay(new Date(date));
-    })
+    })   
 
     makeDay.makeDay(date);
     
-
 }());
