@@ -4,7 +4,7 @@ export const makeDay = (date) => {
     // 오늘(Default)
     
     let year = date.getFullYear();
-    let month = date.getMonth() + 1;
+    let month = date.getMonth(); // 0~11
 
     document.getElementById('strMonth').innerHTML = String(date).substr(4, 3);
     document.getElementById('yearCount').innerHTML = year;
@@ -25,10 +25,10 @@ export const makeDay = (date) => {
         document.getElementsByClassName('week-set')[0].append(weeks);
     }
 
-    let firstDay = dayCalc.dayOfWeekDate(year, month, 1); // 이번달 첫날의 요일
-    if(firstDay !== 0) {
-        let lastDay = dayCalc.lastDate(year, month - 2) - firstDay + 2; // 달력에 보여질 저번 달의 날짜 중 제일 낮은 날짜
-        for (let i = 0; i < firstDay - 1; i++) {
+    let firstDay = dayCalc.dayOfWeekDate(new Date(year, month, 1)); // 이번달 첫날의 요일
+    if(firstDay !== 0) { // 첫날이 일요일이라면 전 달 항목은 보여지지않는다.
+        let lastDay = dayCalc.lastDate(year, month - 1) - firstDay + 1; // 달력에 보여질 저번 달의 날짜 중 제일 낮은 날짜
+        for (let i = 0; i < firstDay; i++) {
             // create
             const beforeElement = document.createElement('p');
             beforeElement.appendChild(document.createTextNode(lastDay++));
@@ -43,7 +43,7 @@ export const makeDay = (date) => {
 
     // 이번달
     let order = 0; // 주 순서
-    for (let i = 1; i < dayCalc.lastDate(year, month); i++) {
+    for (let i = 1; i <= dayCalc.lastDate(year, month); i++) {
         // create
         const nowElement = document.createElement('p');
         nowElement.appendChild(document.createTextNode(i));
@@ -56,7 +56,7 @@ export const makeDay = (date) => {
         weeks.append(nowElement);
 
         if(weeks.childElementCount >= 7) {
-            order++;
+            order += 1;
         } 
     }
 
@@ -64,9 +64,17 @@ export const makeDay = (date) => {
     /**
      * 현재 달의 마지막날의 요일이 토요일이라면 6번째줄에만 보여지게
      * 그게 아니라면 5번째줄부터
-     */
-    let lastDayWeek = dayCalc.dayOfWeekDate(dayCalc.lastDate(year, month));    
-    for (let i = 1; i <= 13 - lastDayWeek; i++) {
+     */    
+    let nextMonthFirstDay = dayCalc.dayOfWeekDate(new Date(year, month + 1, 1));
+    let operator = 0;
+
+    if (order === 4) {
+        operator = 14 - nextMonthFirstDay;
+    } else {
+        operator = 7 - nextMonthFirstDay;
+    }
+
+    for (let i = 1; i <= operator; i++) {
         // create
         const afterElement = document.createElement('p');
         afterElement.appendChild(document.createTextNode(i));
@@ -78,7 +86,7 @@ export const makeDay = (date) => {
         weeks.append(afterElement);
 
         if(weeks.childElementCount >= 7) {
-            order++;
+            order += 1;
         } 
     }
 }
