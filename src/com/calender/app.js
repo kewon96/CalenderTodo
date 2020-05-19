@@ -1,4 +1,4 @@
-import makeDay from './makeDay.js'
+import makeDay from './makeDay.js';
 
 (function () {
 
@@ -15,10 +15,9 @@ import makeDay from './makeDay.js'
 
     beforeYear.addEventListener('click', function() {
         year -= 1;
-        date = new Date(year, month, 1);       
 
-        makeDay.makeDay(new Date(date));
-    })
+        makeDay.makeDay(new Date(year, month, 1));
+    });
 
     beforeMonth.addEventListener('click', function() {
         month -= 1;
@@ -26,11 +25,9 @@ import makeDay from './makeDay.js'
             year -= 1;
             month = 11;
         }
-        
-        date = new Date(year, month, 1); 
 
-        makeDay.makeDay(new Date(date));
-    })
+        makeDay.makeDay(new Date(year, month, 1));
+    });
 
     afterMonth.addEventListener('click', function() {
         month += 1;
@@ -39,18 +36,15 @@ import makeDay from './makeDay.js'
             month = 0;
         }
 
-        date = new Date(year, month, 1); 
-
-        makeDay.makeDay(new Date(date));
-    })
+        makeDay.makeDay(new Date(year, month, 1));
+    });
 
     afterYear.addEventListener('click', function() {
         year += 1;
-        date = new Date(year, month, 1);   
         
-        makeDay.makeDay(new Date(date));
-    })   
+        makeDay.makeDay(new Date(year, month, 1));
+    });
 
-    makeDay.makeDay(date);
+    makeDay.makeDay(new Date(year, month, 1));
     
 }());

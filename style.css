@@ -2,41 +2,127 @@
 header { border-bottom: 1px solid #95AFC0; }
 label { font-weight: bold; color: #726D71; }
 .main { display: flex; }
+
+/* calendar */
+.calendarContainer { width: 50%; text-align: center; }
 .move { display: flex; }
 .move * { cursor: pointer; }
 .move-day { display: flex; font-size: 3rem; margin: 30px 0 10px 20%;}
 .move-day i { color: #74B9FF; }
 .month-year { display: flex; padding: 0 10px; width: 300px; justify-content: center; }
 .month-year label:nth-of-type(2) { padding-right: 20px; }
+.month { position: relative; font-size: 2.5rem; left: 5%; font-weight: bold; }
+.day-of-week {  font-style: 2rem; margin-top: 30px; display: flex; }
 .week { width: 126px; }
 .weeks { display: flex; }
-.day { width: 75px; }
+.day { width: 75px; padding: 15px 20px 0 30px; }
 .now { color: #726D71; }
-.before, .after { color: #c8d6e5; }
+.before, .after {opacity: 0.21;}
 #before-year, #after-year  { width: 90px; }
+i:hover { color: rgb(57, 137, 216); }
+.weeks .day:nth-of-type(1)  { color: #ee5253; }
+.weeks .day:nth-of-type(7)  { color: #54a0ff; }
 
-.t-a-c { text-align: center; }
 
-.d-f { display: flex; }
+/* todo */
+.todo-container { width: 50%; text-align: center; }
+.choice-day{font-size: 3rem;margin: 30px 0 10px 0%;}
 
-.p-r { position: relative; }
+/* checkbox 관련 css */
+.checks {position: relative;}
 
-.l-5p { left: 5% }
-.l-20p { left: 20%; }
+.checks input[type="checkbox"] {  /* 실제 체크박스는 화면에서 숨김 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0
+}
 
-.f-s-2r { font-size: 2.5rem; }
-.f-s-3r { font-size: 3rem; }
+.checks input[type="checkbox"] + label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 
-.day { padding: 15px 20px 0 30px; }
-.m-side50 {margin: 0 50px;}
-.m-t-30 { margin-top: 30px; }
-.m-b-10 { margin-bottom: 10px; }
+.checks input[type="checkbox"] + label:before {  /* 가짜 체크박스 */
+    content: ' ';
+    display: inline-block;
+    width: 21px;  /* 체크박스의 너비를 지정 */
+    height: 21px;  /* 체크박스의 높이를 지정 */
+    line-height: 21px; /* 세로정렬을 위해 높이값과 일치 */
+    margin: -2px 8px 0 0;
+    text-align: center; 
+    vertical-align: middle;
+    background: #fafafa;
+    border: 1px solid #cacece;
+    border-radius : 3px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+}
 
-.w-50p { width: 50%; }
-.w-75 { width: 75px; }
+.checks input[type="checkbox"] + label:active:before,
+.checks input[type="checkbox"]:checked + label:active:before {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
 
-.w-s-40 { word-spacing: 40px; }
+.checks input[type="checkbox"]:checked + label:before {  /* 체크박스를 체크했을때 */ 
+    content: '\2714';  /* 체크표시 유니코드 사용 */
+    color: #99a1a7;
+    text-shadow: 1px 1px #fff;
+    background: #e9ecee;
+    border-color: #adb8c0;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+}
 
-.f-w-b { font-weight: bold; }
+.checks.etrans input[type="checkbox"] + label {
+    padding-left: 30px;
+}
 
-.c-p { cursor: pointer; }
+.checks.etrans input[type="checkbox"] + label:before {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    opacity: .6;
+    box-shadow: none;
+    border-color: #6cc0e5;
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+}
+
+.checks.etrans input[type="checkbox"]:checked + label:before {
+    position: relative;
+    content: "";
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    border-radius: 0;
+    opacity:1; 
+    background: transparent;
+    border-color:transparent #6cc0e5 #6cc0e5 transparent;
+    border-top-color:transparent;
+    border-left-color:transparent;
+    -ms-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.no-csstransforms .checks.etrans input[type="checkbox"]:checked + label:before {
+    /*content:"\2713";*/
+    content: "\2714";
+    top: 0;
+    left: 0;
+    width: 21px;
+    line-height: 21px;
+    color: #6cc0e5;
+    text-align: center;
+    border: 1px solid #6cc0e5;
+}
+
+
