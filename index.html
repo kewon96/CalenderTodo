@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/fontello-256d9f31/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>CalendarToDo</title>
     <script type="module" src="src/com/calender/app.js"></script>
@@ -18,12 +19,16 @@
         </header>
         <section>
             <div class="main">
-                <div class="calendarContainer">
+                <div class="calendar-container">
                     <header>
                         <div class="move-day">
                             <div class="move">
-                                <div id="before-year"><i>≪</i></div>
-                                <div id="before-month"><i>&lt;</i></div>
+                                <div id="before-year">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </div>
+                                <div id="before-month">
+                                    <i class="fa fa-angle-left"></i>
+                                </div>
                             </div>
                             <div class="month-year">
                                 <label id="strMonth"></label>
@@ -31,8 +36,8 @@
                                 <label id="yearCount"></label>
                             </div>
                             <div class="move">
-                                <div id="after-month"><i>></i></div>
-                                <div id="after-year"><i>≫</i></div>
+                                <div id="after-month"><i class="fa fa-angle-right"></i></div>
+                                <div id="after-year"><i class="fa fa-angle-double-right"></i></div>
                             </div>
                         </div>
                     </header>
@@ -54,7 +59,9 @@
 
                 <div class="todo-container">
                     <header>
-                        <div class="choice-day">2020 / 05 / 19</div>
+                        <div class="choice-day">
+                            <label>2020 / 05 / 19</label>
+                        </div>
                     </header>
                     <section>
                         <div class="todoList">
@@ -64,12 +71,12 @@
                                     <label for="ex_chk3"></label> 
                                 </div>
                                 <input type="text">
-                                <i>＋</i>
-                                <i>×</i>
+                                <i class="fa fa-plus-square"></i>
+                                <i class="fa fa-minus-square"></i>
                             </div>
                             
                         </div>
-                        <div class="todoDetail">
+                        <div class="todo-detail">
 
                         </div>
                     </section>

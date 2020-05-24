@@ -1,17 +1,18 @@
 * { font-family: 'Poppins', sans-serif; }
 header { border-bottom: 1px solid #95AFC0; }
+p { margin: 0; }
 label { font-weight: bold; color: #726D71; }
 .main { display: flex; }
 
 /* calendar */
-.calendarContainer { width: 50%; text-align: center; }
+.calendar-container { width: 50%; text-align: center; border-right: 1px solid }
 .move { display: flex; }
 .move * { cursor: pointer; }
 .move-day { display: flex; font-size: 3rem; margin: 30px 0 10px 20%;}
 .move-day i { color: #74B9FF; }
 .month-year { display: flex; padding: 0 10px; width: 300px; justify-content: center; }
 .month-year label:nth-of-type(2) { padding-right: 20px; }
-.month { position: relative; font-size: 2.5rem; left: 5%; font-weight: bold; }
+.month { position: relative; font-size: 2.5rem;left: 5%;font-weight: bold;}
 .day-of-week {  font-style: 2rem; margin-top: 30px; display: flex; }
 .week { width: 126px; }
 .weeks { display: flex; }
@@ -26,7 +27,9 @@ i:hover { color: rgb(57, 137, 216); }
 
 /* todo */
 .todo-container { width: 50%; text-align: center; }
-.choice-day{font-size: 3rem;margin: 30px 0 10px 0%;}
+.choice-day { font-size: 3rem; margin: 30px 0 10px 0%; }
+.todo-one { display: flex;}
+
 
 /* checkbox 관련 css */
 .checks {position: relative;}
@@ -58,12 +61,13 @@ i:hover { color: rgb(57, 137, 216); }
     height: 21px;  /* 체크박스의 높이를 지정 */
     line-height: 21px; /* 세로정렬을 위해 높이값과 일치 */
     margin: -2px 8px 0 0;
-    text-align: center; 
+    text-align: center;
     vertical-align: middle;
     background: #fafafa;
     border: 1px solid #cacece;
     border-radius : 3px;
     box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    
 }
 
 .checks input[type="checkbox"] + label:active:before,
@@ -78,13 +82,11 @@ i:hover { color: rgb(57, 137, 216); }
     background: #e9ecee;
     border-color: #adb8c0;
     box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
-}
-
-.checks.etrans input[type="checkbox"] + label {
-    padding-left: 30px;
+    margin-right: 20px;
 }
 
 .checks.etrans input[type="checkbox"] + label:before {
+    padding-right: 1;
     position: relative;
     left: 0;
     top: 0;
@@ -97,13 +99,14 @@ i:hover { color: rgb(57, 137, 216); }
 }
 
 .checks.etrans input[type="checkbox"]:checked + label:before {
+    padding-right: 10;
     position: relative;
     content: "";
     width: 10px;
     top: -5px;
     left: 5px;
     border-radius: 0;
-    opacity:1; 
+    opacity:1;
     background: transparent;
     border-color:transparent #6cc0e5 #6cc0e5 transparent;
     border-top-color:transparent;
@@ -112,17 +115,3 @@ i:hover { color: rgb(57, 137, 216); }
     -webkit-transform:rotate(45deg);
     transform:rotate(45deg);
 }
-
-.no-csstransforms .checks.etrans input[type="checkbox"]:checked + label:before {
-    /*content:"\2713";*/
-    content: "\2714";
-    top: 0;
-    left: 0;
-    width: 21px;
-    line-height: 21px;
-    color: #6cc0e5;
-    text-align: center;
-    border: 1px solid #6cc0e5;
-}
-
-
