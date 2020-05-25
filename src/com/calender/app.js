@@ -46,5 +46,17 @@ import makeDay from './makeDay.js';
     });
 
     makeDay.makeDay(new Date(year, month, 1));
-    
+
+    const nowDay      = document.querySelectorAll('.now.day');
+    const choiceDay   = document.querySelector('.choice-day');
+
+    // 클릭하면 오른쪽의 todo가 변환
+    nowDay.forEach(item => {
+        item.addEventListener('click', event => {
+            let day = item.innerText;
+            choiceDay.children.item(0).innerHTML = `${year} / ${month + 1} / ${day}`;
+            
+        });
+    });
+
 }());
