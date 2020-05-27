@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../styles/fontello-256d9f31/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <title>CalendarToDo</title>
     <script type="module" src="src/com/calender/app.js"></script>
     <script type="module" src="src/com/calender/makeDay.js"></script>
@@ -44,13 +44,13 @@
                     <section>
                         <div class="month">
                             <div class="day-of-week">
-                                <label class="week">Sun</label>
-                                <label class="week">Mon</label>
-                                <label class="week">Tue</label>
-                                <label class="week">Wed</label>
-                                <label class="week">Thu</label>
-                                <label class="week">Fri</label>
-                                <label class="week">Sat</label>
+                                <label class="week">일</label>
+                                <label class="week">월</label>
+                                <label class="week">화</label>
+                                <label class="week">수</label>
+                                <label class="week">목</label>
+                                <label class="week">금</label>
+                                <label class="week">토</label>
                             </div>
                             <div class="week-set"></div>
                         </div>
@@ -64,22 +64,32 @@
                         </div>
                     </header>
                     <section>
-                        <div class="todoList">
+                        <div class="todo-list">
                             <div class="todo-one">
                                 <div class="checks etrans">
-                                    <input type="checkbox" id="ex_chk3"> 
-                                    <label for="ex_chk3"></label> 
+                                    <input type="checkbox" id="1"> 
+                                    <label for="1"></label> 
                                 </div>
-                                <input type="text">
-                                <i class="fa fa-plus-square"></i>
-                                <i class="fa fa-minus-square"></i>
+                                <input type="text" class="content">
+                                <i class="fa fa-plus-square add-todo"></i>
+                                <i class="fa fa-minus-square delete-todo"></i>
                             </div>
-                            
-                        </div>
-                        <div class="todo-detail">
-
+                            <div class="todo-one">
+                                <div class="checks etrans">
+                                    <input type="checkbox" id="2"> 
+                                    <label for="2"></label> 
+                                </div>
+                                <input type="text" class="content">
+                                <i class="fa fa-plus-square add-todo"></i>
+                                <i class="fa fa-minus-square delete-todo"></i>
+                            </div>
                         </div>
                     </section>
+                    <footer>
+                        <div class="todo-detail">
+                            
+                        </div>
+                    </footer>
                 </div>
             </div>
         </section>

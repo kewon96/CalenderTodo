@@ -5,9 +5,10 @@ export const makeDay = (date) => {
     
     let year = date.getFullYear();
     let month = date.getMonth(); // 0~11
+    let day = date.getDate();
 
-    document.getElementById('strMonth').innerHTML = String(date).substr(4, 3);
-    document.getElementById('yearCount').innerHTML = year;
+    document.getElementById('strMonth').innerHTML = `${month + 1}월`;
+    document.getElementById('yearCount').innerHTML = `${year}년`;
 
     // 초기화
     if(document.querySelector('.week-set').innerHTML !== '') {
@@ -89,6 +90,27 @@ export const makeDay = (date) => {
             order += 1;
         } 
     }
+    const nowDay      = document.querySelectorAll('.now.day');
+    const choiceDay   = document.querySelector('.choice-day');
+
+    // 클릭하면 오른쪽의 todo가 변환
+    nowDay.forEach(item => {
+        item.addEventListener('click', function() {
+
+            let day = item.innerText; // 선택한 날짜
+            let todoTitle = `${year}년 ${month + 1}월 ${day}일`;
+            
+            // document.querySelector('.todo-container').style.cssText += 'transition-duration: 1s; display: block;';
+            // document.querySelector('.todo-container').style.display = 'block';
+            document.querySelector('.todo-container').style.transition = '0.5s';
+            document.querySelector('.todo-container').style.opacity = '1';
+
+            document.querySelector('.content').focus();
+
+            choiceDay.children.item(0).innerHTML = todoTitle;
+            
+        });
+    });
 }
 
 export default { makeDay };
