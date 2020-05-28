@@ -37,4 +37,12 @@ export const lastDate = (year, month) => {
     return new Date(year, month + 1, 0).getDate();
 }
 
-export default { dayOfWeekYMD, dayOfWeekDate, firstDate, lastDate };
+/**
+ * 
+ * @return {Date} 현재날짜(시간단위 생략) 
+ */
+export const nowDate = () => {
+    return new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+}
+
+export default { dayOfWeekYMD, dayOfWeekDate, firstDate, lastDate, nowDate };

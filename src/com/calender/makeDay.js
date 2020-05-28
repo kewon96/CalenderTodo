@@ -50,7 +50,8 @@ export const makeDay = (date) => {
         nowElement.appendChild(document.createTextNode(i));
         
         // class값 넣기
-        nowElement.setAttribute('class', 'now day')
+        if(dayCalc.nowDate().getTime() === new Date(year, month, i).getTime()) nowElement.setAttribute('class', 'now day today');
+        else nowElement.setAttribute('class', 'now day');        
 
         // 순차적으로 넣기(document.getElementsByClassName('weeks')[order])
         let weeks = document.getElementsByClassName('weeks')[order];
