@@ -51,7 +51,7 @@ export const makeDay = (date) => {
         
         // class값 넣기
         if(dayCalc.nowDate().getTime() === new Date(year, month, i).getTime()) nowElement.setAttribute('class', 'now day today');
-        else nowElement.setAttribute('class', 'now day');        
+        else nowElement.setAttribute('class', 'now day');
 
         // 순차적으로 넣기(document.getElementsByClassName('weeks')[order])
         let weeks = document.getElementsByClassName('weeks')[order];
@@ -60,6 +60,19 @@ export const makeDay = (date) => {
         if(weeks.childElementCount >= 7) {
             order += 1;
         } 
+
+        // 년/월 이동의 경우 todo title의 값을 이용해서 선택한 날짜를 보여준다.
+        const todoTitle = document.querySelector('.choice-day label').innerHTML;
+        const arr = todoTitle.split('월');
+        const titleYear = Number(arr[0].slice(0, 4)); // 년
+        const titleMonth = Number(arr[0].slice(-2)) - 1; // 월
+        const titleDate = Number(todoTitle.slice(-3, -1)); // 일
+        if(i === titleDate) {
+            const before = new Date(year, month, i);
+            const after = new Date(titleYear, titleMonth, titleDate);
+
+            if(before.getTime() === after.getTime()) nowElement.id = 'choice';            
+        }
     }
 
     // 다음달
@@ -87,9 +100,7 @@ export const makeDay = (date) => {
         let weeks = document.getElementsByClassName('weeks')[order];
         weeks.append(afterElement);
 
-        if(weeks.childElementCount >= 7) {
-            order += 1;
-        } 
+        if(weeks.childElementCount >= 7) order += 1;
     }
     const nowDay      = document.querySelectorAll('.now.day');
     const choiceDay   = document.querySelector('.choice-day');
@@ -98,17 +109,23 @@ export const makeDay = (date) => {
     nowDay.forEach(item => {
         item.addEventListener('click', function() {
 
+            // Todo Title 
             let day = item.innerText; // 선택한 날짜
             let todoTitle = `${year}년 ${month + 1}월 ${day}일`;
             
-            // document.querySelector('.todo-container').style.cssText += 'transition-duration: 1s; display: block;';
-            // document.querySelector('.todo-container').style.display = 'block';
             document.querySelector('.todo-container').style.transition = '0.5s';
             document.querySelector('.todo-container').style.opacity = '1';
 
             document.querySelector('.content').focus();
 
             choiceDay.children.item(0).innerHTML = todoTitle;
+            
+            // 달력에 선택
+            const choice = document.getElementById('choice');
+            if(choice) choice.id = ''; // 기존의 choice가 있다면 기존의 choice를 제거함
+
+            // 이벤트가 발생한 element에 id 이식
+            event.target.id = 'choice';
             
         });
     });

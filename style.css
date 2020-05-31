@@ -24,6 +24,7 @@ i:hover { color: rgb(57, 137, 216) !important; }
 .now { color: #726D71; cursor: pointer; }
 .today { color: #74B9FF; }
 .now:hover { transition-duration: 0.2s; background-color: rgb(57, 137, 216); color: #fff; border-radius: 1em; }
+#choice { background-color: rgb(57, 137, 216); color: #fff; border-radius: 1em; }
 
 
 /* todo */
