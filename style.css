@@ -33,15 +33,18 @@ input[type="text"]:focus { outline: none; border-color: #595986; }
 
 /* todo */
 .todo-container { width: 30%; text-align: center; border-left: 1px solid #95AFC0; opacity: 0; }
+.todo-container section { margin: 1.5em 0 2.5em; }
 .choice-day { font-size: 3rem; padding: 10px 0; }
-.todo-list { position: relative; width: 80%; left: 15%; margin: 2.5em 0; }
+#todo { font-size: 2rem; }
+.todo-list { position: relative; width: 80%; left: 15%; margin-bottom: 2.5em; }
 .todo-one { display: flex; margin-top: 3%;}
 .content { width:65%; }
 .add-todo, .delete-todo { font-size: 30px !important; }
 .add-todo { margin: 0 5px; }
 .todo-detail {margin: 4em 0 0; float: left; width:100%;}
-.todo-detail > div {float: left;margin-left: 1em;}
+.todo-detail > div { width: 100%; }
 .achievement { padding-bottom: 1em; }
+.next-plen-list { margin: 2.5em 0; border-top: 1px solid #000; }
 
 /* checkbox 관련 css */
 .checks {position: relative;}
