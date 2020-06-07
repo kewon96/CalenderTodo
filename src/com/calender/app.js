@@ -9,6 +9,10 @@ import makeDay from './makeDay.js';
     const beforeMonth = document.getElementById('before-month');
     const afterMonth  = document.getElementById('after-month');
     const afterYear   = document.getElementById('after-year');
+    const achievementValue = document.getElementById('achievement-value'); // 달성률 range
+    const achievementTxt = document.getElementById('achievement-txt'); // 달성률 표시하는 label
+
+    achievementTxt.innerHTML = achievementValue.value + '%';
 
     let year  = date.getFullYear();
     let month = date.getMonth();
@@ -46,5 +50,10 @@ import makeDay from './makeDay.js';
     });
 
     makeDay.makeDay(new Date(year, month, 1));
+
+    
+    achievementValue.addEventListener('input', function() {
+        achievementTxt.innerHTML = achievementValue.value + '%';
+    })
 
 }());

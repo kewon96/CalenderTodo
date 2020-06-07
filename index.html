@@ -64,7 +64,6 @@
                         </div>
                     </header>
                     <section>
-                        <label id="todo">ToDo</label>
                         <div class="todo-list">
                             <div class="todo-one">
                                 <div class="checks etrans">
@@ -97,17 +96,28 @@
                     </section>
                     <footer>
                         <div class="todo-detail">
-                            <div class="achievement">
-                                <label>Achievement&nbsp;:&nbsp;</label>
-                                <input type="text" id="value" >
-                                <label>%</label>
-                            </div>
-                            <div class="reason">
-                                <label>Why you can’t?&nbsp;:&nbsp;</label>
+                            <div class="todo-detail-today">
+                                <label>달성률</label>
+                                <div>
+                                    <input type="range" min="0" max="100" step="1" value="0" id="achievement-value" >
+                                    <label id="achievement-txt"></label>
+                                </div>
+
+                                <label>미달성사유</label>
                                 <input type="text" id="reason-value">
                             </div>
                             <div class="next-plen-list">
-                                <label>Next Day</label>
+                                <label>다음날 계획</label>
+                                <div class="next-plen-one">
+                                    <input type="text" class="content">
+                                    <i class="fa fa-plus-square add-todo"></i>
+                                    <i class="fa fa-minus-square delete-todo"></i>
+                                </div>
+                                <div class="next-plen-one">
+                                    <input type="text" class="content">
+                                    <i class="fa fa-plus-square add-todo"></i>
+                                    <i class="fa fa-minus-square delete-todo"></i>
+                                </div>
                                 <div class="next-plen-one">
                                     <input type="text" class="content">
                                     <i class="fa fa-plus-square add-todo"></i>

@@ -6,7 +6,7 @@ label { font-weight: bold; color: #726D71; }
 .main { display: flex; }
 i { color: #74B9FF; }
 i:hover { color: rgb(57, 137, 216) !important; }
-footer { border-top: 1px solid #000; width: 100%; }
+footer { width: 100%; }
 input[type="text"] { border: 1px solid #59598667; border-radius: 7px; padding: 3px 2px;}
 input[type="text"]:focus { outline: none; border-color: #595986; }
 
@@ -33,18 +33,21 @@ input[type="text"]:focus { outline: none; border-color: #595986; }
 
 /* todo */
 .todo-container { width: 30%; text-align: center; border-left: 1px solid #95AFC0; opacity: 0; }
-.todo-container section { margin: 1.5em 0 2.5em; }
 .choice-day { font-size: 3rem; padding: 10px 0; }
 #todo { font-size: 2rem; }
-.todo-list { position: relative; width: 80%; left: 15%; margin-bottom: 2.5em; }
-.todo-one { display: flex; margin-top: 3%;}
+.todo-list {display: grid; row-gap: 0.1em; grid-template-columns: 100%; }
+.todo-one { display: flex; margin-top: 3%; justify-content: center; }
 .content { width:65%; }
 .add-todo, .delete-todo { font-size: 30px !important; }
 .add-todo { margin: 0 5px; }
-.todo-detail {margin: 4em 0 0; float: left; width:100%;}
-.todo-detail > div { width: 100%; }
+.todo-detail { width: 100%; }
+.todo-detail-today { display: grid; justify-content: center; margin: 1em 0; }
+.todo-detail-today > div { display: flex; }
 .achievement { padding-bottom: 1em; }
-.next-plen-list { margin: 2.5em 0; border-top: 1px solid #000; }
+#achievement-value { width: 20rem; }
+#reason-value { width: 20rem; }
+.next-plen-list { display: grid; margin: 3em 0; padding: 3em 0; border-top: 1px solid #000; row-gap: 1em; }
+.next-plen-one { display: flex; justify-content: center; }
 
 /* checkbox 관련 css */
 .checks {position: relative;}
