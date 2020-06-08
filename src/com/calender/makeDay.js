@@ -1,4 +1,5 @@
 import * as dayCalc from './dayCalc.js';
+import makeTodo from './makeTodo.js';
 
 export const makeDay = (date) => {
     // 오늘(Default)
@@ -107,7 +108,7 @@ export const makeDay = (date) => {
 
     // 클릭하면 오른쪽의 todo가 변환
     nowDay.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', () => {
 
             // Todo Title 
             let day = item.innerText; // 선택한 날짜

@@ -5,7 +5,7 @@ p { margin: 0; }
 label { font-weight: bold; color: #726D71; }
 .main { display: flex; }
 i { color: #74B9FF; }
-i:hover { color: rgb(57, 137, 216) !important; }
+i:hover { color: rgb(57, 137, 216); transition: 0.3s; }
 footer { width: 100%; }
 input[type="text"] { border: 1px solid #59598667; border-radius: 7px; padding: 3px 2px;}
 input[type="text"]:focus { outline: none; border-color: #595986; }
@@ -38,8 +38,8 @@ input[type="text"]:focus { outline: none; border-color: #595986; }
 .todo-list {display: grid; row-gap: 0.1em; grid-template-columns: 100%; }
 .todo-one { display: flex; margin-top: 3%; justify-content: center; }
 .content { width:65%; }
-.add-todo, .delete-todo { font-size: 30px !important; }
-.add-todo { margin: 0 5px; }
+.add-today, .delete-today, .add-next-day, .delete-next-day { font-size: 30px !important; }
+.add-today, .add-next-day { margin: 0 5px; }
 .todo-detail { width: 100%; }
 .todo-detail-today { display: grid; justify-content: center; margin: 1em 0; }
 .todo-detail-today > div { display: flex; }
