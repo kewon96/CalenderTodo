@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../styles/fontello-256d9f31/css/fontello.css">
     <link rel="stylesheet" href="../styles/reset.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CalendarToDo</title>
@@ -64,6 +64,7 @@
                         </div>
                     </header>
                     <section>
+                        <div class="alert-today">오늘 계획은 최대 4개까지만 만들 수 있습니다.</div>
                         <div class="todo-list">
                             <div class="todo-one">
                                 <div class="checks etrans">
@@ -72,7 +73,6 @@
                                 </div>
                                 <input type="text" class="content">
                                 <i class="fa fa-plus-square add-today"></i>
-                                <i class="fa fa-minus-square delete-today"></i>
                             </div>
                         </div>
                     </section>
@@ -86,14 +86,15 @@
                                 </div>
 
                                 <label>미달성사유</label>
-                                <input type="text" id="reason-value">
+                                <textarea id="reason-value" cols="10" rows="3"></textarea>
                             </div>
                             <div class="next-plen-list">
+                                <div class="alert-next">다음날 계획은 최대 4개까지만 만들 수 있습니다.</div>
                                 <label>다음날 계획</label>
                                 <div class="next-plen-one">
                                     <input type="text" class="content">
                                     <i class="fa fa-plus-square add-next-day"></i>
-                                    <i class="fa fa-minus-square delete-next-day"></i>
+                                    <!-- <i class="fa fa-minus-square delete-next-day"></i> -->
                                 </div>
                             </div>
                         </div>
@@ -101,6 +102,7 @@
                 </div>
             </div>
         </section>
+        <footer></footer>
     </div>
 </body>
 </html>
